@@ -18,26 +18,24 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
 
+def apply_dotmatrix (image):
 
-dotmatrix = DotMatrix(dot_matrix_shape="circle",
-                      dot_matrix_dot_width_range=(5, 5),
-                      dot_matrix_dot_height_range=(5, 5),
-                      dot_matrix_min_width_range=(1, 1),
-                      dot_matrix_max_width_range=(50, 50),
-                      dot_matrix_min_height_range=(1, 1),
-                      dot_matrix_max_height_range=(50, 50),
-                      dot_matrix_min_area_range=(10, 10),
-                      dot_matrix_max_area_range=(800, 800),
-                      dot_matrix_median_kernel_value_range = (29,29),
-                      dot_matrix_gaussian_kernel_value_range=(1, 1),
-                      dot_matrix_rotate_value_range=(0, 0)
-                      )
+        dotmatrix = DotMatrix(dot_matrix_shape="circle",
+                              dot_matrix_dot_width_range=(5, 5),
+                              dot_matrix_dot_height_range=(5, 5),
+                              dot_matrix_min_width_range=(1, 1),
+                              dot_matrix_max_width_range=(50, 50),
+                              dot_matrix_min_height_range=(1, 1),
+                              dot_matrix_max_height_range=(50, 50),
+                              dot_matrix_min_area_range=(10, 10),
+                              dot_matrix_max_area_range=(800, 800),
+                              dot_matrix_median_kernel_value_range = (29,29),
+                              dot_matrix_gaussian_kernel_value_range=(1, 1),
+                              dot_matrix_rotate_value_range=(0, 0)
+                              )
 
-
-img_dotmatrix = dotmatrix(image)
-cv2.imshow("dotmatrix", img_dotmatrix)
+        return dotmatrix(image)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

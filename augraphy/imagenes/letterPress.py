@@ -18,18 +18,15 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
+def apply_letterpress (image):
 
-letterpress = Letterpress(n_samples=(200, 500),
-                          n_clusters=(300, 800),
-                          std_range=(1500, 5000),
-                          value_range=(200, 255),
-                          value_threshold_range=(128, 128),
-                          blur=1
-                          )
-
-img_letterpress = letterpress(image)
-cv2.imshow("letterpress", img_letterpress)
-
+        letterpress = Letterpress(n_samples=(200, 500),
+                                  n_clusters=(300, 800),
+                                  std_range=(1500, 5000),
+                                  value_range=(200, 255),
+                                  value_threshold_range=(128, 128),
+                                  blur=1
+                                  )
+        return letterpress(image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

@@ -18,15 +18,14 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
-delaunay_pattern = DelaunayTessellation(
-                                        n_points_range = (500, 800),
-                                        n_horizontal_points_range=(50, 100),
-                                        n_vertical_points_range=(50, 100),
-                                        noise_type = "random")
+def apply_delaunay_pattern(image):
+    delaunay_pattern = DelaunayTessellation(
+                                            n_points_range = (500, 800),
+                                            n_horizontal_points_range=(50, 100),
+                                            n_vertical_points_range=(50, 100),
+                                            noise_type = "random")
 
-img_final = delaunay_pattern(image)
-cv2.imshow("Delaunay Image", img_final)
+    return delaunay_pattern(image)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

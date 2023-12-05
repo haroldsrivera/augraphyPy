@@ -18,20 +18,18 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
 
-faxify = Faxify(scale_range = (1,2),
-                monochrome = 1,
-                monochrome_method = "cv2.threshold",
-                monochrome_arguments = {"thresh":128, "maxval":128, "type":cv2.THRESH_BINARY},
-                halftone = 1,
-                invert = 1,
-                half_kernel_size = (2,2),
-                angle = (0, 360),
-                sigma = (1,3))
-
-img_faxify = faxify(image)
-cv2.imshow("faxify", img_faxify)
+def apply_faxify (image):
+    faxify = Faxify(scale_range = (1,2),
+                    monochrome = 1,
+                    monochrome_method = "cv2.threshold",
+                    monochrome_arguments = {"thresh":128, "maxval":128, "type":cv2.THRESH_BINARY},
+                    halftone = 1,
+                    invert = 1,
+                    half_kernel_size = (2,2),
+                    angle = (0, 360),
+                    sigma = (1,3))
+    return faxify(image)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

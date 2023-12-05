@@ -18,25 +18,23 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
 
-book_binder_up = BookBinding(shadow_radius_range=(100, 100),
-                             curve_range_right=(300, 300),
-                             curve_range_left=(300, 300),
-                             curve_ratio_right = (0.3, 0.3),
-                             curve_ratio_left = (0.3, 0.3),
-                             mirror_range=(1.0, 1.0),
-                             binding_align = 0,
-                             binding_pages = (10,10),
-                             curling_direction=0,
-                             backdrop_color=(255, 255, 255),
-                             enable_shadow=1,
-                             use_cache_images = 0,
-                             )
+def apply_book_binder_up(image):
+    book_binder_up = BookBinding(shadow_radius_range=(100, 100),
+                                 curve_range_right=(300, 300),
+                                 curve_range_left=(300, 300),
+                                 curve_ratio_right = (0.3, 0.3),
+                                 curve_ratio_left = (0.3, 0.3),
+                                 mirror_range=(1.0, 1.0),
+                                 binding_align = 0,
+                                 binding_pages = (10,10),
+                                 curling_direction=0,
+                                 backdrop_color=(255, 255, 255),
+                                 enable_shadow=1,
+                                 use_cache_images = 0,
+                                 )
 
-img_book_binding_up = book_binder_up(image)
-
-cv2.imshow("book_binding_up", img_book_binding_up)
+    return book_binder_up(image)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

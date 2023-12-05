@@ -18,13 +18,11 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
+def apply_brightness_texturize(image):
 
-brightness_texturize = BrightnessTexturize(texturize_range=(0.9, 0.99),
-                                           deviation=0.1 )
+    brightness_texturize = BrightnessTexturize(texturize_range=(0.9, 0.99),
+                                               deviation=0.1 )
 
-img_brightness_texturize = brightness_texturize(image)
-cv2.imshow("brightness_texturize", img_brightness_texturize)
-
+    return brightness_texturize (image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

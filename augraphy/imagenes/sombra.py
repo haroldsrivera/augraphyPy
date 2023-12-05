@@ -18,18 +18,15 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
 
-bleedthrough = BleedThrough(intensity_range=(0.1, 0.2),
-                            color_range=(0, 224),
-                            ksize=(17, 17),
-                            sigmaX=0,
-                            alpha=0.3,
-                            offsets=(50, 30),
-                        )
-
-img_bleedthrough = bleedthrough(image)
-cv2.imshow("bleedthrough", img_bleedthrough)
-
+def apply_bleedtrough(image):
+    bleedthrough = BleedThrough(intensity_range=(0.1, 0.2),
+                                color_range=(0, 224),
+                                ksize=(17, 17),
+                                sigmaX=0,
+                                alpha=0.3,
+                                offsets=(50, 30),
+                            )
+    return bleedthrough(image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

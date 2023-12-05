@@ -18,17 +18,15 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
 
-colorshift = ColorShift(color_shift_offset_x_range = (3,5),
+def apply_color_shift(image):
+    colorshift = ColorShift(color_shift_offset_x_range = (3,5),
                         color_shift_offset_y_range = (3,5),
                         color_shift_iterations = (2,3),
                         color_shift_brightness_range = (0.9,1.1),
                         color_shift_gaussian_kernel_range = (3,3),
                         )
 
-img_colorshift = colorshift(image)
-cv2.imshow("colorshift", img_colorshift)
-
+    return colorshift(image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

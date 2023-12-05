@@ -18,14 +18,11 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
+def apply_dirty_rollers(image):
 
-dirty_rollers = DirtyRollers(line_width_range=(12, 25),
-                            scanline_type=0,
-                            )
-
-img_dirty_rollers = dirty_rollers(image)
-cv2.imshow("dirty_rollers", img_dirty_rollers)
-
+    dirty_rollers = DirtyRollers(line_width_range=(12, 25),
+                                scanline_type=0,
+                                )
+    return dirty_rollers(image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

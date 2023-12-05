@@ -18,12 +18,12 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
 
-colorpaper= ColorPaper(hue_range=(0, 10), saturation_range=(10,30))
+def apply_colorpaper(image):
+    colorpaper= ColorPaper(hue_range=(0, 10), saturation_range=(10,30))
 
-img_colorpaper = colorpaper(image)
-cv2.imshow("colorpaper", img_colorpaper)
+    return colorpaper(image)
+
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

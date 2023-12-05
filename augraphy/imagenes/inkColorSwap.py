@@ -18,11 +18,11 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
+
 
 #1
-
-inkcolorswap= InkColorSwap(ink_swap_color = "random",
+def apply_inkcolor_swap(image):
+    inkcolorswap= InkColorSwap(ink_swap_color = "random",
                            ink_swap_sequence_number_range = (1,10),
                            ink_swap_min_width_range=(3,3),
                            ink_swap_max_width_range=(100,100),
@@ -32,9 +32,7 @@ inkcolorswap= InkColorSwap(ink_swap_color = "random",
                            ink_swap_max_area_range=(400,400)
                            )
 
-img_inkcolorswap = inkcolorswap(image)
-
-cv2.imshow("inkcolorswap", img_inkcolorswap)
+    return inkcolorswap(image)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

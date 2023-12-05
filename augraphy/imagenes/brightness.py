@@ -18,15 +18,13 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
 
-brightness_dimmer= Brightness(brightness_range=(0.2, 0.8),
-                                min_brightness=1,
-                                min_brightness_value=(120, 150),
-                        )
-
-img_brightness_dimmer= brightness_dimmer(image)
-cv2.imshow("brightness_dimmer", img_brightness_dimmer)
+def apply_brightness_dimmer(image):
+    brightness_dimmer= Brightness(brightness_range=(0.2, 0.8),
+                                    min_brightness=1,
+                                    min_brightness_value=(120, 150),
+                            )
+    return brightness_dimmer(image)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

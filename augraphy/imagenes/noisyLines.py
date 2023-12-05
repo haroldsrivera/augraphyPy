@@ -18,21 +18,20 @@ cv2.putText(
 )
 
 
-cv2.imshow("Input image", image)
-noisylines = NoisyLines(noisy_lines_direction = 0,
-                        noisy_lines_location = "random",
-                        noisy_lines_number_range = (3,5),
-                        noisy_lines_color = (0,0,0),
-                        noisy_lines_thickness_range = (2,2),
-                        noisy_lines_random_noise_intensity_range = (0.01, 0.1),
-                        noisy_lines_length_interval_range = (0,100),
-                        noisy_lines_gaussian_kernel_value_range = (3,3),
-                        noisy_lines_overlay_method = "ink_to_paper",
-                        )
+def apply_noisy_lines (image):
+    noisylines = NoisyLines(noisy_lines_direction = 0,
+                            noisy_lines_location = "random",
+                            noisy_lines_number_range = (3,5),
+                            noisy_lines_color = (0,0,0),
+                            noisy_lines_thickness_range = (2,2),
+                            noisy_lines_random_noise_intensity_range = (0.01, 0.1),
+                            noisy_lines_length_interval_range = (0,100),
+                            noisy_lines_gaussian_kernel_value_range = (3,3),
+                            noisy_lines_overlay_method = "ink_to_paper",
+                            )
 
 
-img_noisylines = noisylines(image)
-cv2.imshow("noisylines", img_noisylines)
+    return noisylines(image)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
